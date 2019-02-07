@@ -12,17 +12,21 @@
 <body>
   <div>
     <a href="" onclick="newFunction()">Press to Roll Dice</a>
+    <h1 id="answer"></h1>
   </div>
   <script>
         function newFunction(){
 
 
+
             var message = ["One","Two","Three","Four","Five","Six"];
+
 
             var a = Math.floor(Math.random() * message.length);
 
             window.alert(message[a]);
-        }
+            document.getElementById("answer").innerHTML = "You Rolled a Die!"
+      }
 
 
 
