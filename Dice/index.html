@@ -16,17 +16,16 @@
   <script>
         function newFunction(){
 
-            alert('One');
-            document.getElementById("answer").innerHTML = "One"
+
+            var message = ["One","Two","Three","Four","Five","Six"];
+
+            var a = Math.floor(Math.random() * message.length);
+
+            window.alert(message[a]);
         }
-        function newFunction2(){
-            alert('button two');
-            document.getElementById("answer").innerHTML = "second thing you write"
-        }
-        function newFunction3(){
-            alert('button three');
-            document.getElementById("answer").innerHTML = "third thing you write"
-        }
+
+
+
     </script>
 
 </body>
