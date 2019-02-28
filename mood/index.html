@@ -1,79 +1,88 @@
 
-<!DOCTYPE html>
 <html>
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="css/style.css">
-   <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
 <title>Mood</title>
 </head>
 
 <body>
 
-	<h1 id="title">My Mood Ring</h1>
+<h1 id="title">My Mood Ring</h1>
 
-	<button id="moodButton" onclick="changeMood()" value="0">Change my mood</button>
+<button id="moodButton" onclick="changeMood()" value="0">Change my mood</button>
 
-  <div id="moodStatement"></div>
+<div id="moodStatement"></div>
 
 
 <script>
 text =""
+lastNumber ="";
 function changeMood(){
-	button = document.getElementById("moodButton")
-	if (button.value == '0') {
-		text ="innocence";
-		document.getElementById('moodStatement').innerHTML = text
-		document.body.style.backgroundColor = "#FFFEF4";
-		button.value = '1';
+	moodButton.value = Math.floor(Math.random()*6);
+	
+	checkLast();
+	
+	
+	function checkLast(){
+		if (moodButton.value == lastNumber){
+			moodButton.value = Math.floor(Math.random()*6);
+			checkLast();
+		}
 	}
-	else if (button.value =='1'){
-		text = "evil";
-		document.getElementById('moodStatement').innerHTML = text;
-				document.body.style.backgroundColor = "#000000";
-        document.getElementById('moodStatement').style.color = "white";
-        document.getElementById('title').style.color = "white";
-		button.value = '2';
- }
- else if (button.value =='2'){
-	 text = "love";
-	 document.getElementById('moodStatement').innerHTML = text;
-			 document.body.style.backgroundColor = "#FF493C";
-       document.getElementById('title').style.color = "#464C16";
-       document.getElementById('moodStatement').style.color = "#464C16";
-    button.value = '3';
-	}
-	else if (button.value =='3'){
-		text = "calmness";
-		document.getElementById('moodStatement').innerHTML = text;
-				document.body.style.backgroundColor = "#64C3FF";
-        document.getElementById('moodStatement').style.color = "#4C1616";
-        document.getElementById('title').style.color = "#4C1616";
-		button.value = '4';
-	 }
-	 else if (button.value =='4'){
-		text = "envy";
-		document.getElementById('moodStatement').innerHTML = text;
-				document.body.style.backgroundColor = "#7AFF67";
-        document.getElementById('title').style.color = "#1A164C";
-        document.getElementById('moodStatement').style.color = "#1A164C";
-		button.value = '5';
-	 }
-   else if (button.value =='5'){
-   text = "kindness";
-   document.getElementById('moodStatement').innerHTML = text;
-       document.body.style.backgroundColor = "#E86B9A";
-       document.getElementById('title').style.color = "#FFE119";
-       document.getElementById('moodStatement').style.color = "#FFE119";
-   button.value = '6';
-  }
-	else if (button.value =='6'){
-   button.value = '0';
-  }
+	
+button = document.getElementById("moodButton")
+if (button.value == '0') {
+text ="innocence";
+document.getElementById('moodStatement').innerHTML = text
+document.body.style.backgroundColor = "#FFFEF4";
 
+}
+if (button.value =='1'){
+text = "evil";
+document.getElementById('moodStatement').innerHTML = text;
+document.body.style.backgroundColor = "#000000";
+document.getElementById('moodStatement').style.color = "white";
+document.getElementById('title').style.color = "white";
+
+}
+if (button.value =='2'){
+text = "love";
+document.getElementById('moodStatement').innerHTML = text;
+document.body.style.backgroundColor = "#FF493C";
+document.getElementById('title').style.color = "#464C16";
+document.getElementById('moodStatement').style.color = "#464C16";
+
+}
+if (button.value =='3'){
+text = "calmness";
+document.getElementById('moodStatement').innerHTML = text;
+document.body.style.backgroundColor = "#64C3FF";
+document.getElementById('moodStatement').style.color = "#4C1616";
+document.getElementById('title').style.color = "#4C1616";
+
+}
+if (button.value =='4'){
+text = "envy";
+document.getElementById('moodStatement').innerHTML = text;
+document.body.style.backgroundColor = "#7AFF67";
+document.getElementById('title').style.color = "#1A164C";
+document.getElementById('moodStatement').style.color = "#1A164C";
+
+}
+if (button.value =='5'){
+text = "kindness";
+document.getElementById('moodStatement').innerHTML = text;
+document.body.style.backgroundColor = "#E86B9A";
+document.getElementById('title').style.color = "#FFE119";
+document.getElementById('moodStatement').style.color = "#FFE119";
+
+}
+lastNumber = moodButton.value;
 }
 </script>
 </body>
