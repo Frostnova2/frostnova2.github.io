@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700);
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+canvas {
+  cursor: default;
+}
+#buttons{
+  text-align: center;
+  margin: auto;
+}
+#save {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  height: auto;
+  width: 100px;
+  margin-left: -75px;
+  background-color: #16a085;
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+#save:hover {
+  background-color: #10826B;
+}
+
+#clear {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  height: auto;
+  width: 100px;
+  margin-left: 30px;
+  background-color: #e74c3c;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+
+
+#clear:hover {
+  background-color: #c0392b;
+}
+#color1{
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 800px;
+  left: 2%;
+  top:10px;
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  background-color: #00FFFF;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+#color2{
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 690px;
+  left: 2%;
+  top:120px;
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  background-color: #FF00FF;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+#color3{
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 580px;
+  top: 230px;
+  left: 2%;
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  background-color: #FFFF00;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+#color4{
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  bottom: 470px;
+  top: 340px;
+  left: 2%;
+  height: 100px;
+  width: 100px;
+  margin-left: 30px;
+  background-color: #000000;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 0;
+}
+p {
+  text-align: center;
+}
+.clicked {
+  stroke: blue;
+}
