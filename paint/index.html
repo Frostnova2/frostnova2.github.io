@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Paint</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <p>Draw your sketch</p>
+    <canvas id="canvas"></canvas>
+    <button id="save">Save</button>
+    <button id="clear">Clear</button>
+    <button id="color1">Cyan</button>
+    <button id="color2">Magenta</button>
+    <button id="color3">Yellow</button>
+    <button id="color4">Black</button>
+	  <button id="makeSmaller">-</button>
+    <button id="makeBigger">+</button>
+
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+
+    <script>
+    //set canvas
+    var c = document.getElementById('canvas');
+    var ctx = c.getContext("2d");
+
+    resizeWindow();
+
+    // Default position
+    var DefaultPos = {x:0, y:0};
+
+    window.addEventListener('resize', resizeWindow);
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseenter', setPosition);
+
+    function setCanvasBG(){
+    	ctx.beginPath();
+      ctx.rect(0, 0, c.width, c.height);
+      ctx.fillStyle = "#4f4bd1";
+      ctx.fill();
+    }
+
+    //initialise canvas items
+    setCanvasBG();  //bg color
+
+
+
+    //window resize
+    function resizeWindow(){
+    	c.width  = window.innerWidth;
+    	c.height = window.innerHeight;
+      setCanvasBG();
+      $('p').show();
+    }
+    //new mouse event position
+    function setPosition(e){
+    	DefaultPos.x = e.clientX;
+    	DefaultPos.y = e.clientY;
+    }
+    //drawing canvas object
+    function draw(e){
+      //left click define
+      if (e.buttons !== 1) return;
+
+    	ctx.beginPath(); //path begin
+
+
+
+
+
+
+      ctx.moveTo(DefaultPos.x, DefaultPos.y);
+      setPosition(e);
+      ctx.lineTo(DefaultPos.x, DefaultPos.y);
+
+      ctx.stroke();
+    }
+		 ctx.lineWidth = 100;
+		  ctx.lineCap = "round";
+		  ctx.strokeStyle = "white";
+
+    //save canvas
+    $("#save").click(function() {
+      var html = " ";
+      html += "<img src='" + c.toDataURL() + "' alt='from canvas'/>";
+      var pageStyle = "<style>body{margin:0; padding: 0;}</style>";
+      var tab = window.open();
+      tab.document.write(html + pageStyle);
+    });
+
+    $('canvas, p').click(function(){
+       $('p').hide();
+    });
+    //Clear canvas
+    $("#clear").click(function() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    	setCanvasBG();
+      $('p').show();
+    });
+
+
+    $("#color1").click(function() {
+
+		 ctx.strokeStyle = "cyan";
+		});
+	  $("#color2").click(function() {
+      ctx.strokeStyle = "magenta";
+    });
+
+    $("#color3").click(function() {
+      ctx.strokeStyle = "yellow";
+    });
+
+    $("#color4").click(function() {
+     ctx.strokeStyle = "black";
+    });
+
+	$("#makeSmaller").click(function() {
+			 if (ctx.lineWidth>5){
+				ctx.lineWidth = ctx.lineWidth-5;
+			}
+			else{
+				alert ('too small');
+			}
+	});
+
+  $("#makeBigger").click(function() {
+       if (ctx.lineWidth<10){
+        ctx.lineWidth = ctx.lineWidth+5;
+      }
+      else{
+        alert ('too big');
+      }
+  });
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
