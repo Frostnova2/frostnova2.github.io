@@ -1,0 +1,17 @@
+body{
+
+  background-color: pink;
+}
+h1{
+  font-family: 'Princess Sofia', cursive;
+  font-size: 700%;
+  color: white;
+  text-align: center;
+}
+
+#button{
+  margin-top: 5%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10%;
+}
